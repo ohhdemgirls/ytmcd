@@ -10,6 +10,8 @@ I chose to configure `youtube-dl` to use `ffmpeg` to transcode audio into high-q
 
 ### Channels
 
+These are the channels I back up for myself. Edit file `channels` to your own preferences.
+
 In no particular order:
 
 ```
