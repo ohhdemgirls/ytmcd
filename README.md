@@ -13,14 +13,25 @@ Refer to the man pages for my `youtube-dl` flag choices, but here are some point
 * `--download-archive downloaded`: sucessful downloads will have their video ids listed here, which `youtube-dl` will ignore in subsequent runs
 * `--geo-bypass`: useful for a lot of the Asian songs (thanks SONY Japan...)
 * `--max-filesize 128m`: Usually amounts to 2.5 hour files with the current audio quality settings; fits most reasonable-length music mixes and avoids annoying 10-hour novelty videos
-* `--add-metadata`: Writes the video title to ID3 title and the channel name to ID3 artist, in most cases
+* `--add-metadata`: Writes the video title to ID3 title and the channel name to ID3 artist, in the case of MP3 files
 
-I chose to configure `youtube-dl` to use `ffmpeg` to transcode audio into high-quality MP3 rather than rip the FLAC audio for various reasons:
+And for some general Q/A (please correct me if I am wrong via issue or PR):
 
-* FLAC metadata tagging is weird, ID3 on MP3 is much more common and established
+##### Why high-quality MP3 when you can get the FLAC audio?
+
+* FLAC metadata tagging (vorbis format) is weird, ID3 on MP3 is much more common and established
 * I personally don't have terabytes on terabytes of storage space
-* The transcoding overhead acts as a great time buffer so as to not get rate-limited or ip blocked 
+* The transcoding overhead (`youtube-dl` appears to encode FLAC from the downloaded webm audio much faster, MP3 is slower as it is a lossy compression format) acts as a great time buffer so as to not get rate-limited or ip blocked 
 * I don't have super sensitive ears; MP3 at high bitrates is good enough for me in most cases, though I do download my favorite songs as FLAC
+
+##### Why not download the native youtube MP4 AAC audio instead of transcoding from lossy to lossy (MP3)?
+
+AFAIK and to my own experience, `--add-metadata` does not currently work with `--audio-format aac` (the tags are left empty if you read `ytmcd`-ripped AAC files with a universal tag reader like `kid3`). Metadata tags are very important to me, though if this is not the case for you, it is an easy script modification. 
+
+##### Why no `--restrict-filenames`?
+
+* I download lots of East Asian music and prefer to keep the original titles
+* My terminal can handle unicode
 
 
 ### Channels
