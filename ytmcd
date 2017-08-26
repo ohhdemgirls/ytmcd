@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -ex
+command -v youtube-dl > /dev/null 2>&1
+command -v ffmpeg > /dev/null 2>&1
+set +ex
+
 trap "exit" SIGINT
 
 OUT_FORMAT='%(uploader)s/%(title)s [%(id)s].%(ext)s'
