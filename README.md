@@ -1,6 +1,8 @@
 # ytmcd
 YouTube Music Channel Downloader.
 
+Basically a sensible selection of youtube-dl flags to download music from music channels in bulk!
+
 ### Remarks
 
 I chose to configure `youtube-dl` to use `ffmpeg` to transcode audio into high-quality MP3 rather than rip the FLAC audio for various reasons:
