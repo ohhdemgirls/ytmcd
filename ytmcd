@@ -1,0 +1,20 @@
+#!/bin/bash
+
+trap "exit" SIGINT
+
+OUT_FORMAT='%(uploader)s/%(title)s [%(id)s].%(ext)s'
+
+youtube-dl \
+    --ignore-config                 \
+    --ignore-errors                 \
+    --no-continue                   \
+    --geo-bypass                    \
+    --download-archive downloaded   \
+    --extract-audio                 \
+    --audio-format mp3              \
+    --audio-quality 0               \
+    --max-filesize 128m             \
+    --add-metadata                  \
+    --prefer-ffmpeg                 \
+    -o "$OUT_FORMAT"                \
+    --batch-file='channels'
