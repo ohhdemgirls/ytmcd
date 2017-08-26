@@ -3,7 +3,17 @@ YouTube Music Channel Downloader.
 
 Basically a sensible selection of youtube-dl flags to download music from music channels in bulk!
 
+If you are using this for yourself, feel free to ignore file `downloaded` as that is for my own personal record, and be sure to edit `channels` to your own preferences.
+
+
 ### Remarks
+
+Refer to the man pages for my `youtube-dl` flag choices, but here are some points worth mentioning:
+
+* `--download-archive downloaded`: sucessful downloads will have their video ids listed here, which `youtube-dl` will ignore in subsequent runs
+* `--geo-bypass`: useful for a lot of the Asian songs (thanks SONY Japan...)
+* `--max-filesize 128m`: Usually amounts to 2.5 hour files with the current audio quality settings; fits most reasonable-length music mixes and avoids annoying 10-hour novelty videos
+* `--add-metadata`: Writes the video title to ID3 title and the channel name to ID3 artist, in most cases
 
 I chose to configure `youtube-dl` to use `ffmpeg` to transcode audio into high-quality MP3 rather than rip the FLAC audio for various reasons:
 
@@ -12,16 +22,10 @@ I chose to configure `youtube-dl` to use `ffmpeg` to transcode audio into high-q
 * The transcoding overhead acts as a great time buffer so as to not get rate-limited or ip blocked 
 * I don't have super sensitive ears; MP3 at high bitrates is good enough for me in most cases, though I do download my favorite songs as FLAC
 
-Refer to the man pages for my `youtube-dl` flag choices, but here are some points worth mentioning:
-
-* `--geo-bypass`: useful for a lot of the Asian songs (thanks SONY Japan...)
-* `--max-filesize 128m`: Usually amounts to 2.5 hour files with the current audio quality settings; fits most reasonable-length music mixes and avoids annoying 10-hour novelty videos
-* `--add-metadata`: Writes the video title to ID3 title and the channel name to ID3 artist, in most cases
-
 
 ### Channels
 
-These are the channels I back up for myself. Edit file `channels` to your own preferences.
+These are the channels I currently back up for myself.
 
 In no particular order:
 
